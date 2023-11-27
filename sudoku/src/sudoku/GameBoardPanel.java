@@ -2,7 +2,10 @@ package sudoku;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class GameBoardPanel extends JPanel{
@@ -13,7 +16,6 @@ public class GameBoardPanel extends JPanel{
 	   public static final int BOARD_WIDTH  = CELL_SIZE * SudokuConstants.GRID_SIZE;
 	   public static final int BOARD_HEIGHT = CELL_SIZE * SudokuConstants.GRID_SIZE;
 	                                             // Board width/height in pixels
-
 	   // Define properties
 	   /** The game board composes of 9x9 Cells (customized JTextFields) */
 	   private Cell[][] cells = new Cell[SudokuConstants.GRID_SIZE][SudokuConstants.GRID_SIZE];
@@ -38,10 +40,18 @@ public class GameBoardPanel extends JPanel{
 	      // .........
 	      //t: Aloque um ouvinte comum como ouvinte ActionEvent para todos os
 	    //Células (JTextFields)
+	      CellInputListener listener = new CellInputListener();
 
 	      // [TODO 4] Adds this common listener to all editable cells
 	      // .........
 	      // t: // [TODO 4] Adiciona este ouvinte comum a todas as células editáveis
+	      for (int row =0; row < SudokuConstants.GRID_SIZE; ++row) {
+	    	   for (int col=0; col < SudokuConstants.GRID_SIZE; ++col) {
+	    	      if (cells[row][col].isEditable()) {
+	    	         cells[row][col].addActionListener(listener);   // For all editable rows and cols
+	    	      }
+	    	   }
+	    	}
 	      super.setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
 	   }
 
@@ -51,9 +61,9 @@ public class GameBoardPanel extends JPanel{
 	    */
 	   //t: /** Gere um novo quebra-cabeça; e redefina o tabuleiro de células com base no quebra-cabeça.Você pode chamar este método para iniciar um novo jogo.
 	  
-	   public void newGame() {
+	   public void newGame(Level level) {
 	      // Generate a new puzzle
-	      puzzle.newPuzzle(2);
+	      puzzle.newPuzzle(level);
 	      // Initialize all the 9x9 cells, based on the puzzle.
 	      for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
 	         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
@@ -82,4 +92,57 @@ public class GameBoardPanel extends JPanel{
 	   // .........
 	   //t: // [TODO 2] Definir uma classe interna de ouvinte para todas as células editáveis
 	// .........
+	   private class CellInputListener implements ActionListener {
+		      public void actionPerformed1(ActionEvent e) {
+		         // Get a reference of the JTextField that triggers this action event
+		         Cell sourceCell = (Cell)e.getSource();
+				 
+		         // Retrieve the int entered
+		         int numberIn = Integer.parseInt(sourceCell.getText());
+		         // For debugging
+		         System.out.println("You entered " + numberIn);
+		         
+		         if(numberIn == sourceCell.number) {
+		        	 sourceCell.status = CellStatus.CORRECT_GUESS; 
+		         }else {
+		        	 sourceCell.status = CellStatus.WRONG_GUESS; 
+		         }
+		         sourceCell.paint();
+		         /*
+		          * [TODO 5] (later - after TODO 3 and 4)
+		          * Check the numberIn against sourceCell.number.
+		          * Update the cell status sourceCell.status,
+		          * and re-paint the cell via sourceCell.paint().
+		          */
+		          //if (numberIn == sourceCell.number) {
+		          //   sourceCell.status = CellStatus.CORRECT_GUESS;
+		          //} else {
+		          //   ......
+		          //}
+		          //sourceCell.paint();   // re-paint this cell based on its status
+
+		         /*
+		          * [TODO 6] (later)
+		          * Check if the player has solved the puzzle after this move,
+		          *   by calling isSolved(). Put up a congratulation JOptionPane, if so.
+		          */
+		         if(isSolved()) {
+		        	 JOptionPane.showMessageDialog(GameBoardPanel.this, 
+		        			 "Parabéns!! Você venceu o jogo!", "Jogo resolvido", JOptionPane.INFORMATION_MESSAGE); 
+		         	}
+		         }
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		      
+
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+		   }
 }

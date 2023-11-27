@@ -21,52 +21,129 @@ public class Puzzle {
 	   //t: // Gera um novo quebra-cabeça dado o número de células a serem adivinhadas, que pode ser usado
 	// para controlar o nível de dificuldade.
 	// Este método deve definir (ou atualizar) os números dos arrays e isGiven
-	   public void newPuzzle(int cellsToGuess) {
+	   public void newPuzzle(Level level) {
 	      // I hardcode a puzzle here for illustration and testing.
-	      int[][] hardcodedNumbers = new int [9][9];
-//	         {{5, 3, 4, 6, 7, 8, 9, 1, 2},
-//	          {6, 7, 2, 1, 9, 5, 3, 4, 8},
-//	          {1, 9, 8, 3, 4, 2, 5, 6, 7},
-//	          {8, 5, 9, 7, 6, 1, 4, 2, 3},
-//	          {4, 2, 6, 8, 5, 3, 7, 9, 1},
-//	          {7, 1, 3, 9, 2, 4, 8, 5, 6},
-//	          {9, 6, 1, 5, 3, 7, 2, 8, 4},
-//	          {2, 8, 7, 4, 1, 9, 6, 3, 5},
-//	          {3, 4, 5, 2, 8, 6, 1, 7, 9}};
+	      if(level == Level.dificil) {
+	    	  int[][] hardcodedNumbers = 
+	      
+	         {{5, 3, 4, 6, 7, 8, 9, 1, 2},
+	          {6, 7, 2, 1, 9, 5, 3, 4, 8},
+	          {1, 9, 8, 3, 4, 2, 5, 6, 7},
+	          {8, 5, 9, 7, 6, 1, 4, 2, 3},
+	          {4, 2, 6, 8, 5, 3, 7, 9, 1},
+	          {7, 1, 3, 9, 2, 4, 8, 5, 6},
+	          {9, 6, 1, 5, 3, 7, 2, 8, 4},
+	          {2, 8, 7, 4, 1, 9, 6, 3, 5},
+	          {3, 4, 5, 2, 8, 6, 1, 7, 9}};
+	    	  for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
+	 	         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
+	 	            numbers[row][col] = hardcodedNumbers[row][col];
+	 	        
+	 	         }
+	 	      }
+	    	  boolean[][] hardcodedIsGiven =
+	 	         {{true, true, true, true, true, false, true, true, true},
+	 	          {false, true, true, true, true, true, true, true, false},
+	 	          {true, true, true, true, true, true, true, true, true},
+	 	          {true, true, true, true, true, true, true, true, true},
+	 	          {true, true, true, true, true, true, true, true, true},
+	 	          {true, true, true, true, true, true, true, true, true},
+	 	          {false, true, true, false, true, true, true, true, true},
+	 	          {true, true, true, true, true, true, true, true, true},
+	 	          {true, true, true, true, true, true, true, true, true}};
+	    	  for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
+	 	         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
+	 	            isGiven[row][col] = hardcodedIsGiven[row][col];
+	 	         }
+	 	      }
+	    	  
+	      }
+	      if(level == Level.medio) {
+	    	  int [][] mediumcodedNumbers = 
+	      
+	    	  {{5, 3, 4, 6, 7, 8, 9, 1, 2},
+	    	          {6, 7, 2, 1, 9, 5, 3, 4, 8},
+	    	          {1, 9, 8, 3, 4, 2, 5, 6, 7},
+	    	          {8, 5, 9, 7, 6, 1, 4, 2, 3},
+	    	          {4, 2, 6, 8, 5, 3, 7, 9, 1},
+	    	          {7, 1, 3, 9, 2, 4, 8, 5, 6},
+	    	          {9, 6, 1, 5, 3, 7, 2, 8, 4},
+	    	          {2, 8, 7, 4, 1, 9, 6, 3, 5},
+	    	          {3, 4, 5, 2, 8, 6, 1, 7, 9}};
+	    	  for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
+			         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
+			            numbers[row][col] = mediumcodedNumbers[row][col];
+			         }
+			      }
+	    	  boolean [][] mediumcodedIsGiven = 
+		    	  {{true, true, true, true, true, false, true, true, true},
+		    	          {true, true, true, true, true, true, true, true, false},
+		    	          {true, true, true, true, true, true, true, true, true},
+		    	          {true, true, false, true, true, true, true, true, true},
+		    	          {true, true, true, true, true, true, true, false, false},
+		    	          {true, true, false, true, true, true, true, true, true},
+		    	          {true, true, true, false, true, true, true, true, true},
+		    	          {true, true, true, true, true, true, true, true, true},
+		    	          {true, true, true, true, true, true, true, true, true}};
+	    	   for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
+			         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
+			            isGiven[row][col] = mediumcodedIsGiven[row][col];
+			         }
+			      }
+	      }
+	      if(level == Level.facil) {
+	    	  int [][] easycodedNumbers = 
+	      
+	    	  {{5, 3, 4, 6, 7, 8, 9, 1, 2},
+	    	          {6, 7, 2, 1, 9, 5, 3, 4, 8},
+	    	          {1, 9, 8, 3, 4, 2, 5, 6, 7},
+	    	          {8, 5, 9, 7, 6, 1, 4, 2, 3},
+	    	          {4, 2, 6, 8, 5, 3, 7, 9, 1},
+	    	          {7, 1, 3, 9, 2, 4, 8, 5, 6},
+	    	          {9, 6, 1, 5, 3, 7, 2, 8, 4},
+	    	          {2, 8, 7, 4, 1, 9, 6, 3, 5},
+	    	          {3, 4, 5, 2, 8, 6, 1, 7, 9}};
+	    	  for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
+			         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
+			            numbers[row][col] = easycodedNumbers[row][col];
+			         }
+			      }
+	    	   boolean [][] easycodedIsGiven =
+	 	    	  {{true, true, true, true, true, false, true, true, true},
+	 	    	          {true, true, true, true, true, true, true, true, false},
+	 	    	          {true, true, true, true, true, true, true, true, true},
+	 	    	          {true, false, true, true, true, true, true, true, true},
+	 	    	          {true, true, true, true, true, true, true, true, true},
+	 	    	          {true, true, false, true, true, true, true, true, true},
+	 	    	          {true, true, true, false, true, true, true, true, true},
+	 	    	          {true, true, true, true, true, true, true, true, true},
+	 	    	          {true, true, true, true, true, true, false, true, true}};
+	    	   for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
+			         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
+			            isGiven[row][col] = easycodedIsGiven[row][col];
+			         }
+			      }
+	      }
 
 	      // Copy from hardcodedNumbers into the array "numbers"
 	      //t: // Copia de hardcodedNumbers para o array "numbers"
-	      for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
-	         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
-	            numbers[row][col] = random.nextInt(9)+1;
-	            
-	            		//hardcodedNumbers[row][col];
-	         }
-	      }
-
+	      
+	     
+	      
 	      // Need to use input parameter cellsToGuess!
 	      // Hardcoded for testing, only 2 cells of "8" is NOT GIVEN
 	      //t: // Precisa usar o parâmetro de entrada cellToGuess!
 	   // Codificado para teste, apenas 2 células de "8" NÃO SÃO FORNECIDAS
-	      boolean[][] hardcodedIsGiven = new boolean [9][9];
-//	         {{true, true, true, true, true, false, true, true, true},
-//	          {true, true, true, true, true, true, true, true, false},
-//	          {true, true, true, true, true, true, true, true, true},
-//	          {true, true, true, true, true, true, true, true, true},
-//	          {true, true, true, true, true, true, true, true, true},
-//	          {true, true, true, true, true, true, true, true, true},
-//	          {true, true, true, true, true, true, true, true, true},
-//	          {true, true, true, true, true, true, true, true, true},
-//	          {true, true, true, true, true, true, true, true, true}};
-
+	     
+	   
+	     
 	      // Copy from hardcodedIsGiven into array "isGiven"
-	      for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
-	         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
-	            isGiven[row][col] = random.nextBoolean();
-	            		//hardcodedIsGiven[row][col];
-	         }
-	      }
+	     
+	     
+	   
 	   }
+	   
+	   
 
 	   //(For advanced students) use singleton design pattern for this class
 }
