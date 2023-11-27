@@ -16,7 +16,7 @@ public class GameBoardPanel extends JPanel{
 	   public static final int BOARD_WIDTH  = CELL_SIZE * SudokuConstants.GRID_SIZE;
 	   public static final int BOARD_HEIGHT = CELL_SIZE * SudokuConstants.GRID_SIZE;
 	                                             // Board width/height in pixels
-	   // Define properties
+	  
 	   /** The game board composes of 9x9 Cells (customized JTextFields) */
 	   private Cell[][] cells = new Cell[SudokuConstants.GRID_SIZE][SudokuConstants.GRID_SIZE];
 	   /** It also contains a Puzzle with array numbers and isGiven */
@@ -92,57 +92,55 @@ public class GameBoardPanel extends JPanel{
 	   // .........
 	   //t: // [TODO 2] Definir uma classe interna de ouvinte para todas as células editáveis
 	// .........
+//	
+//		      public void actionPerformed1(ActionEvent e) {
+//		        
+//		         }
 	   private class CellInputListener implements ActionListener {
-		      public void actionPerformed1(ActionEvent e) {
-		         // Get a reference of the JTextField that triggers this action event
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				 // Get a reference of the JTextField that triggers this action event
+		    	// Obtém uma referência do JTextField que dispara este evento de ação
 		         Cell sourceCell = (Cell)e.getSource();
 				 
 		         // Retrieve the int entered
+		      // Recupera o int digitado
 		         int numberIn = Integer.parseInt(sourceCell.getText());
+		         
+
 		         // For debugging
 		         System.out.println("You entered " + numberIn);
-		         
-		         if(numberIn == sourceCell.number) {
-		        	 sourceCell.status = CellStatus.CORRECT_GUESS; 
-		         }else {
-		        	 sourceCell.status = CellStatus.WRONG_GUESS; 
-		         }
-		         sourceCell.paint();
 		         /*
 		          * [TODO 5] (later - after TODO 3 and 4)
 		          * Check the numberIn against sourceCell.number.
 		          * Update the cell status sourceCell.status,
 		          * and re-paint the cell via sourceCell.paint().
+		          *  Verifique o numberIn em relação ao sourceCell.number.
+                  * Atualize o status da célula sourceCell.status,
+                  * e pinte novamente a célula via sourceCell.paint().
 		          */
-		          //if (numberIn == sourceCell.number) {
-		          //   sourceCell.status = CellStatus.CORRECT_GUESS;
-		          //} else {
-		          //   ......
-		          //}
-		          //sourceCell.paint();   // re-paint this cell based on its status
+		         
+		         if (numberIn == sourceCell.number) {
+		             sourceCell.status = CellStatus.CORRECT_GUESS;
+		          }
+		         else {
+		         sourceCell.status = CellStatus.WRONG_GUESS; 
+		          }
+		          sourceCell.paint();   // re-paint this cell based on its status //pinta novamente esta célula com base em seu status
 
 		         /*
 		          * [TODO 6] (later)
 		          * Check if the player has solved the puzzle after this move,
 		          *   by calling isSolved(). Put up a congratulation JOptionPane, if so.
+		          *   Verifique se o jogador resolveu o quebra-cabeça após esta jogada,
+                  * chamando isSolved(). Dê os parabéns ao JOptionPane, se for o caso.
 		          */
 		         if(isSolved()) {
 		        	 JOptionPane.showMessageDialog(GameBoardPanel.this, 
 		        			 "Parabéns!! Você venceu o jogo!", "Jogo resolvido", JOptionPane.INFORMATION_MESSAGE); 
 		         	}
-		         }
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		      
-
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
 		   }
 }

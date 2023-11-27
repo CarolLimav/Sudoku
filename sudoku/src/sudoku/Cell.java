@@ -19,11 +19,12 @@ public class Cell extends JTextField {
 	   public static final Font FONT_NUMBERS = new Font("OCR A Extended", Font.PLAIN, 28);
 	   
 	   // Define properties (package-visible)
-	   /** The row and column number [0-8] of this cell */
+	   /** The row and column number [0-8] of this cell */ /**Define propriedades (visíveis ao pacote)
+/** O número da linha e da coluna [0-8] desta célula */
 	   int row, col;
-	   /** The puzzle number [1-9] for this cell */
+	   /** The puzzle number [1-9] for this cell *//** O número do quebra-cabeça [1-9] para esta célula */
 	   int number;
-	   /** The status of this cell defined in enum CellStatus */
+	   /** The status of this cell defined in enum CellStatus *//** O status desta célula definido no enum CellStatus */
 	   CellStatus status;
 
 	   /** Constructor */
@@ -31,28 +32,33 @@ public class Cell extends JTextField {
 	      super();   // JTextField
 	      this.row = row;
 	      this.col = col;
-	      // Inherited from JTextField: Beautify all the cells once for all
+	      // Inherited from JTextField: Beautify all the cells once for all// Herdado de JTextField: embeleza todas as células de uma vez por todas
 	      super.setHorizontalAlignment(JTextField.CENTER);
 	      super.setFont(FONT_NUMBERS);
 	   }
 
 	   /** Reset this cell for a new game, given the puzzle number and isGiven */
+	   /** Redefine esta célula para um novo jogo, dado o número do quebra-cabeça e isGiven */
 	   public void newGame(int number, boolean isGiven) {
 	      this.number = number;
 	      status = isGiven ? CellStatus.GIVEN : CellStatus.TO_GUESS;
+	      
 	      paint();    // paint itself
 	   }
 
 	   /** This Cell (JTextField) paints itself based on its status */
+	   /** Esta célula (JTextField) se pinta com base em seu status */
 	   public void paint() {
 	      if (status == CellStatus.GIVEN) {
 	         // Inherited from JTextField: Set display properties
+	    	// Herdado de JTextField: Define propriedades de exibição
 	         super.setText(number + "");
 	         super.setEditable(false);
 	         super.setBackground(BG_GIVEN);
 	         super.setForeground(FG_GIVEN);
 	      } else if (status == CellStatus.TO_GUESS) {
 	         // Inherited from JTextField: Set display properties
+	    	// Herdado de JTextField: Define propriedades de exibição
 	         super.setText("");
 	         super.setEditable(true);
 	         super.setBackground(BG_TO_GUESS);

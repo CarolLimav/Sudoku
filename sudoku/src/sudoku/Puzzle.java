@@ -42,15 +42,15 @@ public class Puzzle {
 	 	         }
 	 	      }
 	    	  boolean[][] hardcodedIsGiven =
-	 	         {{true, true, true, true, true, false, true, true, true},
-	 	          {false, true, true, true, true, true, true, true, false},
-	 	          {true, true, true, true, true, true, true, true, true},
-	 	          {true, true, true, true, true, true, true, true, true},
-	 	          {true, true, true, true, true, true, true, true, true},
-	 	          {true, true, true, true, true, true, true, true, true},
-	 	          {false, true, true, false, true, true, true, true, true},
-	 	          {true, true, true, true, true, true, true, true, true},
-	 	          {true, true, true, true, true, true, true, true, true}};
+	 	         {{false, true, false, true, true, false, true, true, true},
+	 	          {false, false, true, true, false, true, false, true, false},
+	 	          {true, true, true, true, true, true, false, true, true},
+	 	          {false, true, false, true, false, true, false, true, false},
+	 	          {true, false, true, false, true, false, true, false, true},
+	 	          {true, true, true, true, true, true, false, true, false},
+	 	          {false, false, true, false, false, false, true, true, false},
+	 	          {true, true, true, true, false, true, true, false, true},
+	 	          {false, false, true, true, false, true, true, true, true}};
 	    	  for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
 	 	         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
 	 	            isGiven[row][col] = hardcodedIsGiven[row][col];
@@ -76,15 +76,15 @@ public class Puzzle {
 			         }
 			      }
 	    	  boolean [][] mediumcodedIsGiven = 
-		    	  {{true, true, true, true, true, false, true, true, true},
-		    	          {true, true, true, true, true, true, true, true, false},
-		    	          {true, true, true, true, true, true, true, true, true},
-		    	          {true, true, false, true, true, true, true, true, true},
+		    	  		  {{false, true, true, false, true, false, true, true, false},
+		    	          {false, true, true, true, true, true, true, true, false},
+		    	          {true, true, false, true, true, true, false, true, true},
+		    	          {false, true, false, true, true, true, true, true, true},
 		    	          {true, true, true, true, true, true, true, false, false},
-		    	          {true, true, false, true, true, true, true, true, true},
-		    	          {true, true, true, false, true, true, true, true, true},
-		    	          {true, true, true, true, true, true, true, true, true},
-		    	          {true, true, true, true, true, true, true, true, true}};
+		    	          {true, true, false, true, false, false, true, false, true},
+		    	          {true, false, true, false, true, true, true, true, true},
+		    	          {true, true, true, true, true, false, true, true, false},
+		    	          {true, true, false, true, true, true, true, true, true}};
 	    	   for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
 			         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
 			            isGiven[row][col] = mediumcodedIsGiven[row][col];
@@ -94,7 +94,7 @@ public class Puzzle {
 	      if(level == Level.facil) {
 	    	  int [][] easycodedNumbers = 
 	      
-	    	  {{5, 3, 4, 6, 7, 8, 9, 1, 2},
+	    	          {{5, 3, 4, 6, 7, 8, 9, 1, 2},
 	    	          {6, 7, 2, 1, 9, 5, 3, 4, 8},
 	    	          {1, 9, 8, 3, 4, 2, 5, 6, 7},
 	    	          {8, 5, 9, 7, 6, 1, 4, 2, 3},
@@ -109,15 +109,15 @@ public class Puzzle {
 			         }
 			      }
 	    	   boolean [][] easycodedIsGiven =
-	 	    	  {{true, true, true, true, true, false, true, true, true},
-	 	    	          {true, true, true, true, true, true, true, true, false},
-	 	    	          {true, true, true, true, true, true, true, true, true},
-	 	    	          {true, false, true, true, true, true, true, true, true},
-	 	    	          {true, true, true, true, true, true, true, true, true},
-	 	    	          {true, true, false, true, true, true, true, true, true},
+	 	    	          {{false, true, true, true, true, false, true, true, true},
+	 	    	          {true, true, true, true, false, true, true, true, false},
+	 	    	          {false, true, true, true, true, true, true, true, true},
+	 	    	          {true, false, true, true, true, false, true, false, true},
+	 	    	          {true, true, true, true, false, true, true, true, true},
+	 	    	          {false, true, false, true, true, true, true, true, true},
 	 	    	          {true, true, true, false, true, true, true, true, true},
-	 	    	          {true, true, true, true, true, true, true, true, true},
-	 	    	          {true, true, true, true, true, true, false, true, true}};
+	 	    	          {false, true, true, true, true, true, true, false, true},
+	 	    	          {true, true, false, true, true, true, false, true, true}};
 	    	   for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
 			         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
 			            isGiven[row][col] = easycodedIsGiven[row][col];

@@ -50,7 +50,7 @@ public class SudokuMain extends JFrame {
 	    	    }
 	    	});
 	     cp.add(btnNewGame, BorderLayout.SOUTH);
-	     board.newGame(Level.dificil); 
+	     board.newGame(Level.facil); 
 
 	      pack();     // Pack the UI components, instead of using setSize()
 	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // to handle window-closing
