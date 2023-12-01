@@ -32,7 +32,8 @@ public class Cell extends JTextField {
 	      super();   // JTextField
 	      this.row = row;
 	      this.col = col;
-	      // Inherited from JTextField: Beautify all the cells once for all// Herdado de JTextField: embeleza todas as células de uma vez por todas
+	      // Inherited from JTextField: Beautify all the cells once for all
+	      // Herdado de JTextField: embeleza todas as células de uma vez por todas
 	      super.setHorizontalAlignment(JTextField.CENTER);
 	      super.setFont(FONT_NUMBERS);
 	   }

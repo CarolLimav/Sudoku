@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class GameBoardPanel extends JPanel{
 	 private static final long serialVersionUID = 1L;  // to prevent serial warning
-
+	
 	   // Define named constants for UI sizes
 	   public static final int CELL_SIZE = 60;   // Cell width/height in pixels
 	   public static final int BOARD_WIDTH  = CELL_SIZE * SudokuConstants.GRID_SIZE;
@@ -92,10 +92,7 @@ public class GameBoardPanel extends JPanel{
 	   // .........
 	   //t: // [TODO 2] Definir uma classe interna de ouvinte para todas as células editáveis
 	// .........
-//	
-//		      public void actionPerformed1(ActionEvent e) {
-//		        
-//		         }
+		         
 	   private class CellInputListener implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -137,10 +134,10 @@ public class GameBoardPanel extends JPanel{
 		          */
 		         if(isSolved()) {
 		        	 JOptionPane.showMessageDialog(GameBoardPanel.this, 
-		        			 "Parabéns!! Você venceu o jogo!", "Jogo resolvido", JOptionPane.INFORMATION_MESSAGE); 
+		        			 "Parabéns!!" + " Você venceu o jogo!", "Jogo resolvido", JOptionPane.INFORMATION_MESSAGE); 
+		        	 
 		         	}
-				
 			}
 		      
-		   }
+		 }
 }

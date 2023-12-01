@@ -35,6 +35,7 @@ public class Puzzle {
 	          {9, 6, 1, 5, 3, 7, 2, 8, 4},
 	          {2, 8, 7, 4, 1, 9, 6, 3, 5},
 	          {3, 4, 5, 2, 8, 6, 1, 7, 9}};
+	    	  
 	    	  for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
 	 	         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
 	 	            numbers[row][col] = hardcodedNumbers[row][col];
@@ -51,6 +52,7 @@ public class Puzzle {
 	 	          {false, false, true, false, false, false, true, true, false},
 	 	          {true, true, true, true, false, true, true, false, true},
 	 	          {false, false, true, true, false, true, true, true, true}};
+	    	  
 	    	  for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
 	 	         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
 	 	            isGiven[row][col] = hardcodedIsGiven[row][col];
@@ -60,8 +62,7 @@ public class Puzzle {
 	      }
 	      if(level == Level.medio) {
 	    	  int [][] mediumcodedNumbers = 
-	      
-	    	  {{5, 3, 4, 6, 7, 8, 9, 1, 2},
+	    		  	  {{5, 3, 4, 6, 7, 8, 9, 1, 2},
 	    	          {6, 7, 2, 1, 9, 5, 3, 4, 8},
 	    	          {1, 9, 8, 3, 4, 2, 5, 6, 7},
 	    	          {8, 5, 9, 7, 6, 1, 4, 2, 3},
@@ -128,22 +129,12 @@ public class Puzzle {
 	      // Copy from hardcodedNumbers into the array "numbers"
 	      //t: // Copia de hardcodedNumbers para o array "numbers"
 	      
-	     
-	      
 	      // Need to use input parameter cellsToGuess!
 	      // Hardcoded for testing, only 2 cells of "8" is NOT GIVEN
 	      //t: // Precisa usar o parâmetro de entrada cellToGuess!
 	   // Codificado para teste, apenas 2 células de "8" NÃO SÃO FORNECIDAS
 	     
-	   
-	     
 	      // Copy from hardcodedIsGiven into array "isGiven"
-	     
-	     
-	   
 	   }
-	   
-	   
-
 	   //(For advanced students) use singleton design pattern for this class
 }
