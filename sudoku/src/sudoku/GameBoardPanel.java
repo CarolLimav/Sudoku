@@ -16,6 +16,7 @@ public class GameBoardPanel extends JPanel{
 	   public static final int BOARD_WIDTH  = CELL_SIZE * SudokuConstants.GRID_SIZE;
 	   public static final int BOARD_HEIGHT = CELL_SIZE * SudokuConstants.GRID_SIZE;
 	                                             // Board width/height in pixels
+	   int pontos = 0; 
 	  
 	   /** The game board composes of 9x9 Cells (customized JTextFields) */
 	   private Cell[][] cells = new Cell[SudokuConstants.GRID_SIZE][SudokuConstants.GRID_SIZE];
@@ -63,6 +64,7 @@ public class GameBoardPanel extends JPanel{
 	  
 	   public void newGame(Level level) {
 	      // Generate a new puzzle
+		   PlayMusic.Play(SongStatus.sudoku);
 	      puzzle.newPuzzle(level);
 	      // Initialize all the 9x9 cells, based on the puzzle.
 	      for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
@@ -119,6 +121,8 @@ public class GameBoardPanel extends JPanel{
 		         
 		         if (numberIn == sourceCell.number) {
 		             sourceCell.status = CellStatus.CORRECT_GUESS;
+		             
+		            
 		          }
 		         else {
 		         sourceCell.status = CellStatus.WRONG_GUESS; 

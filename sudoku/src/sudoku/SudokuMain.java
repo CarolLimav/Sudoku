@@ -29,7 +29,7 @@ public class SudokuMain extends JFrame {
    JButton btnSair = new JButton("Sair");
    private final JLabel lblPlayerName = new JLabel("");
    JLabel lblPlayer = new JLabel("Player");
-   JButton btnReset = new JButton("Reiniciar Jogo");
+   JButton btnReset = new JButton("Redefinir Jogo");
  
    
 
@@ -58,7 +58,7 @@ public class SudokuMain extends JFrame {
       getContentPane().add(lblEscolhaONvel);
       
       btnSair.setVisible(false);
- 
+      btnReset.setVisible(false);
       board.setBounds(0, 50, 435, 462);
 
       cp.add(board);     
@@ -81,7 +81,6 @@ public class SudokuMain extends JFrame {
       setTitle("Sudoku");
       setVisible(true);
       
-      
       btnIniciarJogo.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
 				
@@ -97,8 +96,7 @@ public class SudokuMain extends JFrame {
         		playerNome = JOptionPane.showInputDialog("Player:");
         		jogador.setNome(playerNome);
         		lblPlayerName.setText(jogador.getNome());
-        		startGame(true);
-        		
+        		startGame(true);	
         	}		
         });
       

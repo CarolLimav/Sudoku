@@ -27,6 +27,10 @@ public class Player {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	public void acertouCelula() {
+	       
+        score += 15;
+ }
 	public int getScore() {
 		return score;
 	}
@@ -39,7 +43,7 @@ public class Player {
 	public void setTime(int tempoJogo) {
 		this.tempoJogo = tempoJogo;
 	}
-	
+	 
 	public String toString() {
 		return "Jogador: " + nome;
 	}
