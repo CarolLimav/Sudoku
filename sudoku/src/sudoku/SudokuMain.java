@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane ;
+import javax.swing.border.MatteBorder;
 import javax.swing.* ;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
@@ -59,6 +60,7 @@ public class SudokuMain extends JFrame {
       
       btnSair.setVisible(false);
       btnReset.setVisible(false);
+      board.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
       board.setBounds(0, 50, 435, 462);
 
       cp.add(board);     

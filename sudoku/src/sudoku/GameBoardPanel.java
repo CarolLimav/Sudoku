@@ -121,7 +121,7 @@ public class GameBoardPanel extends JPanel{
 		         
 		         if (numberIn == sourceCell.number) {
 		             sourceCell.status = CellStatus.CORRECT_GUESS;
-		             
+		             PlayMusic.Play(SongStatus.sudoku);
 		            
 		          }
 		         else {
