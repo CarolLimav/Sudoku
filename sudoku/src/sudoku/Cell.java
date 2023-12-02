@@ -2,6 +2,7 @@ package sudoku;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.border.MatteBorder;
 
 public class Cell extends JTextField {
 	 private static final long serialVersionUID = 1L;  // to prevent serial warning
@@ -36,6 +37,7 @@ public class Cell extends JTextField {
 	      // Herdado de JTextField: embeleza todas as células de uma vez por todas
 	      super.setHorizontalAlignment(JTextField.CENTER);
 	      super.setFont(FONT_NUMBERS);
+	     // setBorder(new MatteBorder(0, 2, 0, 2, (Color) new Color(0, 0, 0)));
 	   }
 
 	   /** Reset this cell for a new game, given the puzzle number and isGiven */

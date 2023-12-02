@@ -60,7 +60,7 @@ public class SudokuMain extends JFrame {
       
       btnSair.setVisible(false);
       btnReset.setVisible(false);
-      board.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+     // board.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
       board.setBounds(0, 50, 435, 462);
 
       cp.add(board);     
