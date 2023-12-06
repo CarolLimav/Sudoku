@@ -47,11 +47,11 @@ public class Puzzle {
 	 	          {false, false, true, true, false, true, false, true, false},
 	 	          {true, true, true, true, true, true, false, true, true},
 	 	          {false, true, false, true, false, true, false, true, false},
-	 	          {true, false, true, false, true, false, true, false, true},
-	 	          {true, true, true, true, true, true, false, true, false},
+	 	          {true, false, true, false, true, true, true, false, true},
+	 	          {true, true, false, true, true, false, true, true, false},
 	 	          {false, false, true, false, false, false, true, true, false},
 	 	          {true, true, true, true, false, true, true, false, true},
-	 	          {false, false, true, true, false, true, true, true, true}};
+	 	          {true, false, true, true, true, true, false, true, true}};
 	    	  
 	    	  for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
 	 	         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
@@ -77,15 +77,15 @@ public class Puzzle {
 			         }
 			      }
 	    	  boolean [][] mediumcodedIsGiven = 
-		    	  		  {{false, true, true, false, true, false, true, true, false},
-		    	          {false, true, true, true, true, true, true, true, false},
+		    	  		  {{false, true, false, true, false, true, true, true, false},
+		    	          {true, true, true, true, true, true, true, true, false},
 		    	          {true, true, false, true, true, true, false, true, true},
-		    	          {false, true, false, true, true, true, true, true, true},
-		    	          {true, true, true, true, true, true, true, false, false},
+		    	          {false, true, true, true, true, true, true, false, true},
+		    	          {false, true, true, true, true, true, true, false, false},
 		    	          {true, true, false, true, false, false, true, false, true},
 		    	          {true, false, true, false, true, true, true, true, true},
-		    	          {true, true, true, true, true, false, true, true, false},
-		    	          {true, true, false, true, true, true, true, true, true}};
+		    	          {true, true, true, true, true, false, true, true, true},
+		    	          {true, true, false, true, true, true, true, true, false}};
 	    	   for (int row = 0; row < SudokuConstants.GRID_SIZE; ++row) {
 			         for (int col = 0; col < SudokuConstants.GRID_SIZE; ++col) {
 			            isGiven[row][col] = mediumcodedIsGiven[row][col];

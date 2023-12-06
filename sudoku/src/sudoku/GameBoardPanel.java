@@ -16,8 +16,6 @@ public class GameBoardPanel extends JPanel{
 	   public static final int BOARD_WIDTH  = CELL_SIZE * SudokuConstants.GRID_SIZE;
 	   public static final int BOARD_HEIGHT = CELL_SIZE * SudokuConstants.GRID_SIZE;
 	                                             // Board width/height in pixels
-	   int pontos = 0; 
-	  
 	   /** The game board composes of 9x9 Cells (customized JTextFields) */
 	   private Cell[][] cells = new Cell[SudokuConstants.GRID_SIZE][SudokuConstants.GRID_SIZE];
 	   /** It also contains a Puzzle with array numbers and isGiven */
@@ -122,11 +120,13 @@ public class GameBoardPanel extends JPanel{
 		         if (numberIn == sourceCell.number) {
 		             sourceCell.status = CellStatus.CORRECT_GUESS;
 		             PlayMusic.Play(SongStatus.sudoku);
+		             Score.acertouCelula(); 
 		            
 		          }
 		         else {
 		         sourceCell.status = CellStatus.WRONG_GUESS; 
-		          }
+		         Erro.errou(); 
+		         }
 		          sourceCell.paint();   // re-paint this cell based on its status //pinta novamente esta célula com base em seu status
 
 		         /*
@@ -138,8 +138,8 @@ public class GameBoardPanel extends JPanel{
 		          */
 		         if(isSolved()) {
 		        	 JOptionPane.showMessageDialog(GameBoardPanel.this, 
-		        			 "Parabéns!!" + " Você venceu o jogo!", "Jogo resolvido", JOptionPane.INFORMATION_MESSAGE); 
-		        	 
+		        			 "Parabéns!!" +  " Você venceu o jogo alcançando " + Score.getPontos()+ " pontos", "Jogo resolvido!", JOptionPane.INFORMATION_MESSAGE); 
+		        		
 		         	}
 			}
 		      

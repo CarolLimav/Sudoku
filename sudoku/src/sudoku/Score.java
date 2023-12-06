@@ -1,27 +1,28 @@
 package sudoku;
 
 public class Score {
-	private int pontos;
+	private static int pontos;
 
-	public Score(int pontos) {
-		super();
-		this.pontos = pontos;
+	private Score() {
+//		super();
+//		this.pontos = pontos;
 	}
 
-	public int getPontos() {
+	public static int getPontos() {
 		return pontos;
 	}
 
-	public void setPontos(int pontos) {
-		this.pontos = pontos;
-	}
+//	public void setPontos(int pontos) {
+//		this.pontos = pontos;
+//	}
+	public static void acertouCelula() {
+	       
+        pontos += 15;
+        SudokuMain.getInstance().updateScoreLabel(); 
+    }
 
-	@Override
-	public String toString() {
-		return "Score [pontos=" + pontos + "]";
-	}
-	
-	public void qtdPontos() {
-		this.pontos = 0; 
+	public static void resetScore() {
+		pontos = 0;  
+		SudokuMain.getInstance().updateScoreLabel(); 
 	}
 }

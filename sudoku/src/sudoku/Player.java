@@ -11,8 +11,6 @@ public class Player {
 		this.score = score;
 		this.tempoJogo = tempoJogo;
 	}
-
-
 	public Player(String nome, int score) {
 		super();
 		this.nome = nome;
@@ -27,10 +25,11 @@ public class Player {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public void acertouCelula() {
-	       
-        score += 15;
- }
+//	public void acertouCelula() {
+//	       
+//        score += 15;
+//    }
+	
 	public int getScore() {
 		return score;
 	}

@@ -37,7 +37,34 @@ public class Cell extends JTextField {
 	      // Herdado de JTextField: embeleza todas as células de uma vez por todas
 	      super.setHorizontalAlignment(JTextField.CENTER);
 	      super.setFont(FONT_NUMBERS);
-	     // setBorder(new MatteBorder(0, 2, 0, 2, (Color) new Color(0, 0, 0)));
+	        int topBorder = 0;
+	        int leftBorder = 0;
+	        int bottomBorder = 0; 
+	        int rightBorder = 0; 
+	        if(row % 3 == 0) { 
+	        	topBorder = 2; 
+	        
+	        }else {
+	        	topBorder = 1; 
+	        }
+	        if(col % 3 == 0 ) { 
+	        	leftBorder = 2; 
+	        
+	        }else {
+	        	leftBorder =  1; 
+	        }
+	        if((row + 1) % 3 == 0) { 
+	        	bottomBorder = 2; 
+	        
+	        }else {
+	        	bottomBorder =  1; 
+	        }
+	        if ((col + 1) % 3 == 0) {
+	        	rightBorder = 2;
+	        }else{
+	        	rightBorder = 1;
+	        }
+	        setBorder(new MatteBorder(topBorder, leftBorder, bottomBorder, rightBorder, Color.BLACK));
 	   }
 
 	   /** Reset this cell for a new game, given the puzzle number and isGiven */
