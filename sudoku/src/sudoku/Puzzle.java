@@ -18,9 +18,6 @@ public class Puzzle {
 	   // Generate a new puzzle given the number of cells to be guessed, which can be used
 	   //  to control the difficulty level.
 	   // This method shall set (or update) the arrays numbers and isGiven
-	   //t: // Gera um novo quebra-cabeça dado o número de células a serem adivinhadas, que pode ser usado
-	// para controlar o nível de dificuldade.
-	// Este método deve definir (ou atualizar) os números dos arrays e isGiven
 	   public void newPuzzle(Level level) {
 	      // I hardcode a puzzle here for illustration and testing.
 	      if(level == Level.dificil) {
@@ -127,13 +124,8 @@ public class Puzzle {
 	      }
 
 	      // Copy from hardcodedNumbers into the array "numbers"
-	      //t: // Copia de hardcodedNumbers para o array "numbers"
-	      
 	      // Need to use input parameter cellsToGuess!
 	      // Hardcoded for testing, only 2 cells of "8" is NOT GIVEN
-	      //t: // Precisa usar o parâmetro de entrada cellToGuess!
-	   // Codificado para teste, apenas 2 células de "8" NÃO SÃO FORNECIDAS
-	     
 	      // Copy from hardcodedIsGiven into array "isGiven"
 	   }
 	   //(For advanced students) use singleton design pattern for this class

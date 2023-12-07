@@ -17,22 +17,22 @@ public class SudokuMain extends JFrame {
    private String playerNome;
    JLabel textScore = new JLabel("Pontuação:");
    JLabel score = new JLabel("0");
-   JLabel lblErro = new JLabel("Erros :" +Erro.getErros() + "/3");
+   JLabel lblErro = new JLabel("Erros :" +Player.getErros() + "/3");
    
    public void updateErroLabel() {
-	        lblErro.setText("Erros: " + Erro.getErros() + "/3");
-	        if (Erro.getErros() == 3) {
+	        lblErro.setText("Erros: " + Player.getErros() + "/3");
+	        if (Player.getErros() == 3) {
 	            JOptionPane.showMessageDialog(SudokuMain.this,
 	                    "Fim de Jogo! Você cometeu 3 erros", "Tente Novamente!", JOptionPane.INFORMATION_MESSAGE);
 	            RestartGame(true);
-	            Erro.restartErro(); 
-	            lblErro.setText("Erros: " + Erro.getErros() + "/3");
-	            Score.resetScore(); 
+	            Player.restartErro(); 
+	            lblErro.setText("Erros: " + Player.getErros() + "/3");
+	           
 	        }
 	       
 	    } 
   public void updateScoreLabel() {
-	  score.setText("" + Score.getPontos());
+	  score.setText("" + Player.getScore());
   }
    
 	// private variables
@@ -48,10 +48,7 @@ public class SudokuMain extends JFrame {
    private final JLabel lblPlayerName = new JLabel("");
    JLabel lblPlayer = new JLabel("Player:");
    JButton btnReset = new JButton("Redefinir Jogo");
-  // private final JLabel lblNewLabel_1 = new JLabel("/3");
- 
-   
-
+  
    // Constructor
    private SudokuMain() {
 	  Player jogador = new Player();
@@ -63,11 +60,10 @@ public class SudokuMain extends JFrame {
       lblErro.setBounds(10, 25, 89, 15);
       getContentPane().add(lblErro);
       lblErro.setVisible(false);
-      //Botao start game
       btnIniciarJogo.setBounds(158, 357, 117, 25);
       getContentPane().add(btnIniciarJogo);
       
-      //ComboBox
+      
       comboBox.setBounds(115, 304, 191, 22);
       getContentPane().add(comboBox);
       comboBox.addItem("Fácil");
@@ -76,12 +72,12 @@ public class SudokuMain extends JFrame {
       
       
       lblEscolhaONvel.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
-      lblEscolhaONvel.setBounds(158, 275, 117, 15);
+      lblEscolhaONvel.setBounds(158, 275, 148, 15);
       getContentPane().add(lblEscolhaONvel);
       
       btnSair.setVisible(false);
       btnReset.setVisible(false);
-     // board.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+   
       board.setBounds(0, 50, 435, 462);
 
       cp.add(board);     
@@ -116,10 +112,22 @@ public class SudokuMain extends JFrame {
         		
         		cp.setBackground(new Color(176, 224, 230));
         		Cronometro.getInstance().startTimer();
-        		playerNome = JOptionPane.showInputDialog("Player:");
-        		jogador.setNome(playerNome);
-        		lblPlayerName.setText(jogador.getNome());
-        		startGame(true);	
+				playerNome = JOptionPane.showInputDialog(null, "Player:");
+				while(playerNome == null || playerNome.equals("") ) {
+					playerNome = JOptionPane.showInputDialog(null, "Player:");
+				}
+				if (playerNome == null) {
+					RestartGame(true);
+				}
+				else{
+					jogador.setNome(playerNome);
+					lblPlayerName.setText(jogador.getNome());
+					Player.restartErro();
+					lblErro.setText("Erros: " + Player.getErros() + "/3");
+					Cronometro.getInstance().restartTimer(); 
+					startGame(true);	
+				}
+				
         	}		
         });
       
@@ -161,8 +169,9 @@ public class SudokuMain extends JFrame {
       		cp.setBackground(new Color(176, 224, 230));
       		Cronometro.getInstance().restartTimer();
       		if(btnReset.isSelected()) {
-    	    	Score.resetScore();
-    	    	Erro.restartErro(); 
+    	    	Player.resetScore();
+    	    	Player.restartErro(); 
+    	    	lblErro.setText("Erros: " + Player.getErros() + "/3");
     	    }
       	}
       });
@@ -198,9 +207,9 @@ public class SudokuMain extends JFrame {
     			board.newGame(Level.medio);
     		if (comboBox.getSelectedItem().equals("Difícil")) 
     			board.newGame(Level.dificil);
-    		Score.resetScore();
-    		Erro.restartErro();
-    		lblErro.setText("Erros: " + Erro.getErros() + "/3");
+    		Player.resetScore();
+    		Player.restartErro();
+    		lblErro.setText("Erros: " + Player.getErros() + "/3");
       	}
       });
       btnReset.setBounds(158, 560, 130, 25);
@@ -263,7 +272,7 @@ public class SudokuMain extends JFrame {
 		lblErro.setVisible(!bool);
 		textScore.setVisible(!bool);
 		score.setVisible(!bool);
-		Score.resetScore();
+		Player.resetScore();
   }
  
    
@@ -285,3 +294,4 @@ public class SudokuMain extends JFrame {
 		});
    }
 }
+

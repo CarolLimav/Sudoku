@@ -1,48 +1,47 @@
 package sudoku;
 
 public class Player {
-	private String nome; 
-	private int score; 
-	private int tempoJogo;
+	private static String nome; 
+	private static int score; 
+	private static int erros;
 	
-	public Player(String nome, int score, int tempoJogo) {
-		super();
-		this.nome = nome;
-		this.score = score;
-		this.tempoJogo = tempoJogo;
+	Player() {
 	}
-	public Player(String nome, int score) {
-		super();
-		this.nome = nome;
-		this.score = score;
-	}
-	public Player() {
-		
-	}
-	public String getNome() {
+	public static String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		Player.nome = nome;
 	}
-//	public void acertouCelula() {
-//	       
-//        score += 15;
-//    }
 	
-	public int getScore() {
+	public static int getScore() {
 		return score;
 	}
 	public void setScore(int score) {
-		this.score = score;
+		Player.score = score;
 	}
-	public int getTime() {
-		return tempoJogo;
+	public static int getErros() {
+		return erros;
 	}
-	public void setTime(int tempoJogo) {
-		this.tempoJogo = tempoJogo;
+	public void setErros(int erros) {
+		Player.erros = erros;
 	}
-	 
+	public static void acertouCelula() {
+        score += 15;
+        SudokuMain.getInstance().updateScoreLabel(); 
+    }
+	public static void resetScore() {
+		score = 0;  
+		SudokuMain.getInstance().updateScoreLabel(); 
+	}
+	public static void errou() {
+        erros += 1;
+        SudokuMain.getInstance().updateErroLabel(); 
+    }
+    
+    public static void restartErro() {
+        erros = 0; 
+    }
 	public String toString() {
 		return "Jogador: " + nome;
 	}

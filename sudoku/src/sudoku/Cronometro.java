@@ -64,7 +64,8 @@ public class Cronometro extends JLabel {
 	}
 	public void restartTimer() {
 		t.restart();
-		setTime("00:00:00");
 		this.counter = 0;
+		
+		setTime("00:00:00");
 	}
 }
