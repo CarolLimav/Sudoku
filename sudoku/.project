@@ -14,16 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/files/pausa.png</name>
-			<type>1</type>
-			<location>C:/Users/Carol/Downloads/Game/Game/src/files/pausa.png</location>
-		</link>
-		<link>
-			<name>src/files/play.png</name>
-			<type>1</type>
-			<location>C:/Users/Carol/Downloads/Game/Game/src/files/play.png</location>
-		</link>
-	</linkedResources>
 </projectDescription>
