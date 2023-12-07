@@ -1,5 +1,6 @@
 # Sudoku
 Repositório dedicado ao trabalho final da disciplina de Programação Orientada a Objetos, lecionada pelo professor Manoel Neto no Instituto Federal da Bahia.
+
 O código base desse projeto pode ser encontrado aqui: https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaGame_Sudoku.html
 
 # Descrição do Jogo
