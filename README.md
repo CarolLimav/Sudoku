@@ -1,15 +1,12 @@
 # Sudoku
-Repositório dedicado ao trabalho final da disciplina de Programação Orientada a Objetos, lecionada pelo professor Manoel Neto no Instituto Federal da Bahia.
+Repository dedicated to the final homework of the OOP (object-oriented programming) discipline, taught by professor Manoel Neto at the Federal Institute of Bahia.
 
-O código base desse projeto pode ser encontrado aqui: https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaGame_Sudoku.html
+The base code for this project can be found here: https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaGame_Sudoku.html
+ 
+# Game description
+The idea of ​​the game is quite simple: fill a grid of 9 squares horizontally by 9 squares vertically so that, in each row, in each column and in each larger square, there are numbers from 1 to 9 without repeating any of them.
 
-- Desenvolvedoras:
-- Alda Monique
-- Caroline Lima 
-# Descrição do Jogo
-A ideia do jogo é bastante simples: preencher uma grade de 9 quadrados na horizontal por 9 quadrados na vertical de modo que, em cada linha, em cada coluna e em cada quadrado maior, haja números de 1 a 9 sem repetir nenhum deles.
-
-# Telas 
+# Screens 
 
 ![Tela Inicial](sudoku/pagInicial.png)
 ![Tela para nome](sudoku/nameImage.png)
